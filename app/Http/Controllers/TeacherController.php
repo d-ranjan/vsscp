@@ -123,7 +123,6 @@ class TeacherController extends Controller
             'photo_left' => ['nullable', 'image','mimes:jpeg,jpg,png,svg','max:2048'],
             'photo_right' => ['nullable', 'image','mimes:jpeg,jpg,png,svg','max:2048'],
         ]);
-        error_log('Some message here.1');
 
         // get the teacher
         $teacher = Teacher::findOrFail($id);
@@ -134,7 +133,6 @@ class TeacherController extends Controller
         } else {
             $photo_left = $teacher->photo_left;
         }
-        error_log('Some message here.2');
         
         if ($request->hasFile('photo_right')) {
             $photo_right = Str::slug($teacher->name).'_photo_r_'.$teacher->id.'.'.$request->photo_right->getClientOriginalExtension();
@@ -142,7 +140,6 @@ class TeacherController extends Controller
         } else {
             $photo_right = $teacher->photo_right;
         }
-        error_log('Some message here.3');
 
         $teacher->name = $request->name;
         $teacher->phone_number = $request->phone_number;
@@ -153,7 +150,6 @@ class TeacherController extends Controller
 
         $teacher->save();
 
-        error_log('Some message here.4');
         return redirect()->route('teacher.index')->with('status', 'profile-updated');
     }
 
