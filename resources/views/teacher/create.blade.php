@@ -12,6 +12,16 @@
             </div>
         </div>
         <hr class="">
+        
+        @if ($errors->any())
+            <div class="alert alert-danger text-red-600">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <form action="{{ route('teacher.store') }}" method="POST" class="w-full max-w-xl px-12" enctype="multipart/form-data">
             @csrf
             <!-- Name -->

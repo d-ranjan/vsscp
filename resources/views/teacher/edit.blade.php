@@ -10,7 +10,7 @@
                     @endforeach
                 </ul>
             </div>
-        @endif
+            @endif
 
             @if (Auth::user()->role == 'admin')
             <div class="flex items-center justify-between p-6 pb-3">
