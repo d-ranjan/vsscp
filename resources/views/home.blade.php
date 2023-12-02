@@ -10,12 +10,7 @@
         <link rel="icon" type="image/x-icon" href="{{asset('/vsscp_logo.png')}}">
 
         @vite(['resources/css/app.css', 'resources/js/app.js'])
-        
-        <style>      
-            .gradient {
-                background: linear-gradient(90deg, #d53369 0%, #daae51 100%);
-            }
-        </style>
+
     </head>
     <body class="antialiased">
         <div class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
@@ -25,16 +20,12 @@
                     <span class="ml-1 font-bold text-3xl lg:text-4xl text-emerald-500">VSSCP</span>
                 </a>
                 <div class="flex-grow"></div>
-                @if (Route::has('login'))
-                    @auth
-                        <a href="{{ route('student.dashboard') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</a>
-                    @else
-                        <a href="{{ route('login') }}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Log in</a>
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center ">Register</a>
-                        @endif
-                    @endauth
-                @endif
+                @guest
+                    <a href="{{ route('login') }}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Log in</a>
+                    @if (Route::has('register'))
+                        <a href="{{ route('register') }}" class="ml-4 text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center ">Register</a>
+                    @endif
+                @endauth
             </div>
 
             <div class="mx-auto">
@@ -95,7 +86,7 @@
                 </div>
             
                 <!-- Organisation Info -->
-                <div class="mt-2 gradient py-8 px-3 rounded-lg w-full flex flex-col items-center font-bold">
+                <div class="mt-2 bg-gradient-to-r from-rose-400 to-orange-400 py-8 px-3 rounded-lg w-full flex flex-col items-center font-bold">
                     <h1 class="mb-0 w-full text-center text-emerald-400 text-5xl md:text-5xl">विद्या संकल्प संस्थान कैरियर
                         पथ</h1>
                     <h1 class="py-2 text-white text-center text-2xl md:text-3xl">
@@ -112,57 +103,47 @@
                 <!-- Teachers -->
                 <section class="bg-white border-b py-8">
                     <div class="container max-w-5xl mx-auto">
-                        <h2 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
+                        <h2 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800 underline">
                             Know Your Teachers
                         </h2>
                         <div class="w-full mb-4">
                             <div class="h-1 mx-auto gradient w-96 opacity-25 my-0 py-0 rounded-t"></div>
                         </div>
                         <!-- Teachers -->
+                        
+                    @foreach ($teachers as $teacher)
+                        @if ($loop->odd)
                         <div class="flex flex-wrap items-center justify-center">
                             <div class="w-5/6 sm:w-1/2 p-6">
                                 <h3 class="text-3xl text-gray-800 font-bold leading-none mb-3">
-                                    Rajiv Ranjan
+                                {{ $teacher->name }}
                                 </h3>
                                 <p class="text-gray-600 mb-8">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at ipsum eu nunc commodo
-                                    posuere et sit amet ligula.
+                                {{ $teacher->qualifications }}
                                 </p>
                             </div>
                             <div class="w-full sm:w-1/2 p-6">
-                                <img class="h-72 w-54" src="./teachers/placeholder_r.svg">
+                                <img class="h-72 w-54" src={{ asset(__('/teachers/'. $teacher->photo_right)) }}>
                             </div>
                         </div>
+                        @else
                         <div class="flex flex-wrap items-center justify-center flex-col-reverse sm:flex-row">
                             <div class="w-full sm:w-1/2 p-6 mt-3">                    
-                                <img class="h-72 w-54" src="./teachers/placeholder_l.svg">
+                                <img class="h-72 w-54" src={{ asset(__('/teachers/'. $teacher->photo_left)) }}>
                             </div>
                             <div class="w-full sm:w-1/2 p-6 mt-6">
                                 <div class="align-middle">
                                     <h3 class="text-3xl text-gray-800 font-bold leading-none mb-3">
-                                        Vikash Kumar
+                                    {{$teacher->name}}
                                     </h3>
                                     <p class="text-gray-600 mb-8">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at ipsum eu nunc commodo
-                                        posuere et sit amet ligula.
+                                    {{$teacher->qualifications}}
                                     </p>
                                 </div>
                             </div>
                         </div>
-                        <div class="flex flex-wrap items-center justify-center">
-                            <div class="w-5/6 sm:w-1/2 p-6">
-                                <h3 class="text-3xl text-gray-800 font-bold leading-none mb-3">
-                                    Shailesh Kumar Yadav
-                                </h3>
-                                <p class="text-gray-600 mb-8">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at ipsum eu nunc commodo
-                                    posuere et sit amet ligula.
-                                </p>
-                            </div>
-                            <div class="w-full sm:w-1/2 p-6">
-                                <img class="h-72 w-54" src="./teachers/placeholder_r.svg">
-                            </div>
-                        </div>
+                        @endif
+                    @endforeach
                     </div>
                 </section>
             </div>

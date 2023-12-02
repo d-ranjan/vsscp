@@ -16,12 +16,14 @@
         @keydown.escape.window="isOpen = false" >
             @include('layouts.navbar')
 
+            @auth
                 @include('layouts.sidebar')
-                <!-- Page Content -->
-                <main class="sm:ml-48 flex justify-center"
-                :class="{'max-sm:ml-48':isOpen === true}">
-                    {{ $slot }}
-                </main>
+            @endauth
+            <!-- Page Content -->
+            <main class="sm:ml-48 flex justify-center"
+            :class="{'max-sm:ml-48':isOpen === true}">
+                {{ $slot }}
+            </main>
         </div>
     </body>
 </html>
