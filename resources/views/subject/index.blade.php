@@ -1,5 +1,5 @@
 <x-app-layout>
-    <div class="mt-14 mx-4 max-w-lg mx-auto bg-white overflow-hidden shadow-sm rounded-lg ">
+    <div class="mx-2 my-4 max-w-lg bg-white overflow-hidden shadow-sm rounded-lg ">
         <div class="p-6 text-gray-900">
             <div class="flex items-center justify-between">
                 <div>

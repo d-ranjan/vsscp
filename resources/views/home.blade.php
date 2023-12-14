@@ -1,5 +1,5 @@
 <x-app-layout>
-    <div class="bg-white overflow-hidden shadow-sm dark:bg-gray-800 dark:border-gray-700 container max-w-4xl mx-auto">
+    <div class="bg-white shadow-sm dark:bg-gray-800 dark:border-gray-700 container max-w-4xl mx-auto">
         <!-- Carousel -->
         <div class="w-full mx-auto h-96 md:h-[32rem]">
             <div id="default-carousel" class="relative w-full h-full" data-carousel="slide">
@@ -91,11 +91,11 @@
             </button>
         </div>
 
+        <!-- Teachers -->
         <h2
-            class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800 underline decoration-2 dark:text-white">
+            class="w-full my-2 text-3xl font-bold leading-tight text-center text-gray-800 underline decoration-2 dark:text-white">
             Know Your Teachers
         </h2>
-        <!-- Teachers -->
 
         @foreach ($teachers as $teacher)
         @if ($loop->odd)
@@ -104,10 +104,10 @@
                 <img class="h-72 w-54" src={{ asset(__('/teachers/'. $teacher->photo_right)) }}>
             </div>
             <div class="w-full flex items-center justify-center sm:w-1/2 sm:order-1">
-                <h3 class="text-3xl font-bold leading-none">
+                <h3 class="text-2xl font-bold leading-none">
                     {{ $teacher->name }}
                 </h3>
-                <p class="mb-8">
+                <p class="mb-8 text-xl">
                     {{ $teacher->qualifications }}
                 </p>
             </div>

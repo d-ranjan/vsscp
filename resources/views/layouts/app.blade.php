@@ -16,16 +16,21 @@
 <body class="font-sans antialiased" x-data="{ darkMode: window.matchMedia('(prefers-color-scheme: dark)').matches}"
     :class="{'dark': darkMode == true}">
     <div x-data="{ sidebar: false }"
-        class="min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-slate-800">
+        class="min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-700">
         <x-navbar-layout />
         @auth
         <x-sidebar-layout />
-        @endauth
         <!-- Page Content -->
-        <main class="sm:ml-48 h-full flex justify-center dark:bg-gray-700 pt-12"
-            :class="{'max-sm:ml-48':sidebar == true}">
+        <main class="sm:ml-32 h-full flex justify-center dark:bg-gray-700 pt-12"
+            :class="{'max-sm:ml-32':sidebar == true}">
             {{ $slot }}
         </main>
+        @else
+        <!-- Page Content -->
+        <main class="flex justify-center dark:bg-gray-700 h-full pt-12">
+            {{ $slot }}
+        </main>
+        @endauth
     </div>
 </body>
 

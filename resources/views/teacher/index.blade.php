@@ -1,15 +1,15 @@
 <x-app-layout>
-    <div class="mt-12 bg-white overflow-hidden shadow-sm">
+    <div class="mx-2 my-4 max-w-lg bg-white overflow-hidden shadow-sm rounded-lg dark:bg-gray-800">
         <div class="p-6 text-gray-900">
             <div class="flex items-center justify-between">
-                <h2 class="text-gray-700 uppercase font-bold">Teachers</h2>
+                <h2 class="text-gray-700 uppercase font-bold dark:text-slate-200">Teachers</h2>
                 <x-add-button :route="__('teacher.create')">{{__("Add New Teacher")}}</x-add-button>
             </div>
 
             {{-- Student Table --}}
             <div class="mt-2 border rounded-lg overflow-x-auto dark:border-gray-700">
-                <table class="text-sm text-white text-center shadow-md dark:text-gray-400">
-                    <tr class="uppercase bg-gray-600 dark:bg-gray-700 dark:text-gray-400">
+                <table class="text-sm text-white text-center shadow-md">
+                    <tr class="uppercase bg-gray-600 dark:bg-gray-700 dark:text-gray-300">
                         <th scope="col" class="w-2/12 px-4 py-3 text-xs">Name</th>
                         <th scope="col" class="w-2/12 px-4 py-3 text-xs whitespace-nowrap">Phone Number</th>
                         <th scope="col" class="w-2/12 px-4 py-3 text-xs whitespace-nowrap">Gender</th>
@@ -21,18 +21,18 @@
                     </tr>
                     @foreach ($teachers as $teacher)
                     <tr
-                        class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                        class="bg-white border-b dark:bg-gray-800 dark:border-gray-900 hover:bg-gray-50">
                         <td scope="row"
-                            class="w-4/12 px-1 py-1 text-sm font-semibold text-gray-600 tracking-tight whitespace-nowrap capitalize">
+                            class="w-4/12 px-1 py-1 text-sm font-semibold text-gray-600 tracking-tight whitespace-nowrap capitalize dark:text-gray-400">
                             {{ $teacher->name }}
                         </td>
-                        <td class="px-1 py-1 text-sm font-semibold text-gray-600 tracking-tight">
+                        <td class="px-1 py-1 text-sm font-semibold text-gray-600 tracking-tight dark:text-gray-400">
                             {{ $teacher->phone_number }}
                         </td>
-                        <td class="px-1 py-1 text-sm font-semibold text-gray-600 tracking-tight capitalize">
+                        <td class="px-1 py-1 text-sm font-semibold text-gray-600 tracking-tight capitalize dark:text-gray-400">
                             {{ $teacher->gender }}
                         </td>
-                        <td class="px-1 py-1 text-sm font-semibold text-gray-600 tracking-tight capitalize">
+                        <td class="px-1 py-1 text-sm font-semibold text-gray-600 tracking-tight capitalize dark:text-gray-400">
                             {{ $teacher->qualifications }}
                         </td>
                         <td>

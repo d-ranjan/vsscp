@@ -1,37 +1,17 @@
 <!-- start sidebar -->
-<nav id="sideBar" class="fixed bg-white border-r border-gray-300 p-3 mt-12 w-48 h-screen shadow-xl" x-show="sidebar">
+<nav id="sideBar" class="fixed bg-white border-r border-gray-300 p-3 mt-12 w-32 h-screen shadow-xl dark:bg-gray-800 dark:border-gray-700" :class="{'max-sm:hidden':sidebar == false}">
     <!-- sidebar content -->
     <div class="flex flex-col">
-        <p class="uppercase text-xs text-gray-600 mb-3 tracking-wider">Dashboards</p>
+        <p class="uppercase text-xs text-gray-600 mb-1 tracking-wider dark:text-slate-400">Dashboards</p>
 
         @if (Auth::user()->role === 'admin')
-        <a href="{{ route('teacher.index') }}"
-            class="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500">
-            <i class="fad fa-envelope-open-text text-xs mr-2"></i>
-            Teachers
-        </a>
+        <x-nav-link href="{{ route('teacher.index') }}">Teachers</x-nav-link>
+        <x-nav-link href="{{ route('teacher.students') }}">Students</x-nav-link>
         @endif
 
-        @if (Auth::user()->role === 'admin')
-        <a href="{{ route('teacher.students') }}"
-            class="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500">
-            <i class="fad fa-comments text-xs mr-2"></i>
-            Students
-        </a>
-        @endif
-
-        <p class="uppercase text-xs text-gray-600 mb-4 mt-4 tracking-wider">Functions</p>
-        <a href="{{ route('course.index') }}"
-            class="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500">
-            <i class="fad fa-text text-xs mr-2"></i>
-            Courses
-        </a>
-
-        <a href="{{ route('subject.index') }}"
-            class="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500">
-            <i class="fad fa-text text-xs mr-2"></i>
-            Subjects
-        </a>
+        <p class="uppercase text-xs text-gray-600 mb-1 mt-4 tracking-wider dark:text-slate-400">Functions</p>
+        <x-nav-link href="{{ route('course.index') }}">Courses</x-nav-link>
+        <x-nav-link href="{{ route('subject.index') }}">Subjects</x-nav-link>
     </div>
     <!-- end sidebar content -->
 </nav>

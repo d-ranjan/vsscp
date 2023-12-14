@@ -1,6 +1,6 @@
 <x-app-layout>
     <div class="flex flex-col">
-        <div class="mt-14 sm:w-full max-w-lg mx-auto bg-white overflow-hidden shadow-sm rounded-lg">
+        <div class="mx-2 my-4 max-w-lg bg-white overflow-hidden shadow-sm rounded-lg dark:bg-gray-800">
 
             @if ($errors->any())
             <div class="alert alert-danger">
@@ -14,22 +14,18 @@
 
             @if (Auth::user()->role == 'admin')
             <div class="flex items-center justify-between p-6 pb-3">
-                <div>
-                    <h2 class="text-gray-700 uppercase font-bold">Teacher Profile</h2>
-                </div>
-                <div class="flex flex-wrap items-center">
-                    <a href="{{ route('teacher.index') }}" class="bg-gray-700 text-white text-sm uppercase py-2 px-4 flex items-center rounded">
-                        <svg class="w-3 h-3 fill-current" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="long-arrow-alt-left" class="svg-inline--fa fa-long-arrow-alt-left fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                            <path fill="currentColor" d="M134.059 296H436c6.627 0 12-5.373 12-12v-56c0-6.627-5.373-12-12-12H134.059v-46.059c0-21.382-25.851-32.09-40.971-16.971L7.029 239.029c-9.373 9.373-9.373 24.569 0 33.941l86.059 86.059c15.119 15.119 40.971 4.411 40.971-16.971V296z"></path>
-                        </svg>
-                        <span class="ml-2 text-xs font-semibold">Back</span>
-                    </a>
-                </div>
+                <h2 class="text-gray-700 uppercase font-bold dark:text-white">Teacher Profile</h2>
+                <a href="{{ route('teacher.index') }}" class="bg-gray-700 text-white text-sm uppercase py-2 px-4 flex items-center rounded">
+                    <svg class="w-3 h-3 fill-current" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="long-arrow-alt-left" class="svg-inline--fa fa-long-arrow-alt-left fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                        <path fill="currentColor" d="M134.059 296H436c6.627 0 12-5.373 12-12v-56c0-6.627-5.373-12-12-12H134.059v-46.059c0-21.382-25.851-32.09-40.971-16.971L7.029 239.029c-9.373 9.373-9.373 24.569 0 33.941l86.059 86.059c15.119 15.119 40.971 4.411 40.971-16.971V296z"></path>
+                    </svg>
+                    <span class="ml-2 text-xs font-semibold">Back</span>
+                </a>
             </div>
-            <hr class="">
+            <hr>
             @endif
 
-            <div class="px-4 pb-4 sm:px-8 bg-white shadow sm:rounded-lg">
+            <div class="px-4 pb-4 sm:px-8 bg-white shadow sm:rounded-lg dark:bg-gray-800">
                 <form method="post" action="{{ route('teacher.update', $teacher->id) }}" class="space-y-4" enctype="multipart/form-data">
                     @csrf
                     @method('patch')

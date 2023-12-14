@@ -3,7 +3,7 @@
         <div class="flex items-center justify-start">
             @auth
             <button id="toggleSidebar" aria-expanded="true" aria-controls="sideBar"
-                class="p-2 text-gray-600 rounded cursor-pointer sm:hidden hover:text-gray-900 hover:bg-gray-100 focus:bg-gray-100 dark:focus:bg-gray-700 focus:ring-2 focus:ring-gray-100 dark:focus:ring-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                class="p-2 text-gray-600 rounded cursor-pointer sm:hidden hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
                 x-on:click="sidebar = !sidebar">
                 <svg id="toggleSidebarMobileHamburger" class="w-6 h-6" x-show="!sidebar" fill="currentColor"
                     viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -64,10 +64,10 @@
             </x-dropdown>
             @else
             <a href="{{ route('login') }}"
-                class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Log
+                class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-bold rounded-lg text-sm px-5 py-2 dark:hover:bg-blue-500 focus:outline-none dark:focus:ring-blue-800">Log
                 in</a>
             <a href="{{ route('register') }}"
-                class="ml-4 text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center ">Register</a>
+                class="ml-4 text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2 text-center ">Register</a>
             @endif
         </div>
 

@@ -1,10 +1,8 @@
 <x-app-layout>
-    <div class="mt-14 mx-4 max-w-lg mx-auto bg-white overflow-hidden shadow-sm rounded-lg ">
+    <div class="mx-2 my-4 max-w-lg bg-white overflow-hidden shadow-sm rounded-lg dark:bg-gray-800">
         <div class="p-6 text-gray-900">
             <div class="flex items-center justify-between">
-                <div>
-                    <h2 class="text-gray-700 uppercase font-bold">Students</h2>
-                </div>
+                <h2 class="text-gray-700 uppercase font-bold dark:text-slate-200">Students</h2>
             </div>
 
             {{-- Search Bar --}}
@@ -19,9 +17,9 @@
             </div>
 
             {{-- Student Table --}}
-            <div class="border rounded-lg overflow-hidden dark:border-gray-700">
-                <table class="text-sm text-white text-center shadow-md dark:text-gray-400">
-                    <tr class="uppercase bg-gray-600 dark:bg-gray-700 dark:text-gray-400">
+            <div class="mt-2 border rounded-lg overflow-x-auto dark:border-gray-700">
+                <table class="text-sm text-white text-center shadow-md">
+                    <tr class="uppercase bg-gray-600 dark:bg-gray-700 dark:text-white">
                         <th scope="col" class="w-4/12 px-4 py-3 text-xs">Name</th>
                         <th scope="col" class="w-4/12 px-4 py-3 text-xs whitespace-nowrap">Phone Number</th>
                         <th scope="col" class="w-4/12 px-4 py-3 text-xs whitespace-nowrap">Gender</th>
@@ -29,14 +27,15 @@
                         </th>
                     </tr>
                     @foreach ($users as $user)
-                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                            <td scope="row" class="w-4/12 px-4 py-1 text-sm font-semibold text-gray-600 tracking-tight whitespace-nowrap capitalize">
+                    <tr
+                        class="bg-white border-b dark:bg-gray-800 dark:border-gray-900 hover:bg-gray-50">
+                            <td scope="row" class="w-4/12 px-4 py-1 text-sm font-semibold text-gray-600 tracking-tight whitespace-nowrap capitalize dark:text-gray-400">
                                 {{ $user->name }}
                             </td>
-                            <td class="w-4/12 px-4 py-1 text-sm font-semibold text-gray-600 tracking-tight">
+                            <td class="w-4/12 px-4 py-1 text-sm font-semibold text-gray-600 tracking-tight dark:text-gray-400">
                                 {{ $user->phone_number }}
                             </td>
-                            <td class="w-4/12 px-4 py-1 text-sm font-semibold text-gray-600 tracking-tight capitalize">
+                            <td class="w-4/12 px-4 py-1 text-sm font-semibold text-gray-600 tracking-tight capitalize dark:text-gray-400">
                                 {{ $user->gender }}
                             </td>
                             <td class="w-4/12 px-4 py-1">
