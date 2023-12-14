@@ -103,7 +103,7 @@
             <div class="w-full flex items-center justify-center sm:w-1/2 sm:order-2">
                 <img class="h-72 w-54" src={{ asset(__('/teachers/'. $teacher->photo_right)) }}>
             </div>
-            <div class="w-full flex items-center justify-center sm:w-1/2 sm:order-1">
+            <div class="w-full flex flex-col items-center justify-center sm:w-1/2 sm:order-1">
                 <h3 class="text-2xl font-bold leading-none">
                     {{ $teacher->name }}
                 </h3>
@@ -113,19 +113,17 @@
             </div>
         </div>
         @else
-        <div class="flex flex-wrap items-center justify-center flex-col-reverse sm:flex-row">
-            <div class="w-full sm:w-1/2 p-6 mt-3">
+        <div class="flex flex-wrap items-center justify-center text-gray-800 dark:text-white">
+            <div class="w-full flex items-center justify-center sm:w-1/2">
                 <img class="h-72 w-54" src={{ asset(__('/teachers/'. $teacher->photo_left)) }}>
             </div>
-            <div class="w-full sm:w-1/2 p-6 mt-6">
-                <div class="align-middle">
-                    <h3 class="text-3xl text-gray-800 font-bold leading-none mb-3">
-                        {{$teacher->name}}
-                    </h3>
-                    <p class="text-gray-600 mb-8">
-                        {{$teacher->qualifications}}
-                    </p>
-                </div>
+            <div class="w-full flex flex-col items-center justify-center sm:w-1/2">
+                <h3 class="text-2xl font-bold leading-none">
+                    {{ $teacher->name }}
+                </h3>
+                <p class="mb-8 text-xl">
+                    {{ $teacher->qualifications }}
+                </p>
             </div>
         </div>
         @endif
