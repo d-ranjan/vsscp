@@ -7,33 +7,26 @@ use App\Models\User;
 
 class StudentController extends Controller
 {
-    public function index()
+    public function dashboard()
     {
         return view('student.dashboard');
     }
-    
-    public function all()
+
+    public function index()
     {
         return view('student.index', [
-            'users' => User::getStudents()
-        ]);
-    }
-
-    public function show($id)
-    {
-        return view('student.show', [
-            'users' => User::getStudent($id)
+            'students' => User::getStudents()
         ]);
     }
 }
-    
+
 //     public function index()
 //     {
 //         // $students = Student::with('class')->latest()->paginate(10);
 
 //         // return view('backend.students.index', compact('students'));
 //     }
-    
+
 
 //     /**
 //      * Show the form for creating a new resource.
@@ -44,7 +37,7 @@ class StudentController extends Controller
 //     {
 //         // $classes = Grade::latest()->get();
 //         // $parents = Parents::with('user')->latest()->get();
-        
+
 //         // return view('backend.students.create', compact('classes','parents'));
 //     }
 
@@ -117,7 +110,7 @@ class StudentController extends Controller
 //     public function show(Student $student)
 //     {
 //         // $class = Grade::with('subjects')->where('id', $student->class_id)->first();
-        
+
 //         // return view('backend.students.show', compact('class','student'));
 //     }
 

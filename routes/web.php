@@ -39,7 +39,7 @@ Route::middleware(['auth','role:admin'])->group(function () {
     Route::patch('/teacher/{id}', [TeacherController::class, 'update'])->name('teacher.update');
 
     Route::get('/course/index', [CourseController::class, 'index'])->name('course.index');
-    
+
     Route::get('/subject/index', [SubjectController::class, 'index'])->name('subject.index');
 });
 
@@ -49,12 +49,11 @@ Route::middleware(['auth','role:teacher'])->group(function () {
     Route::patch('/teacher/{id}', [TeacherController::class, 'update'])->name('teacher.update');
     Route::delete('/teacher/{id}', [TeacherController::class, 'destroy'])->name('teacher.destroy');
 
-    Route::get('/teacher/students', [StudentController::class, 'all'])->name('teacher.students');
-    Route::get('/student/show', [StudentController::class, 'show'])->name('student.show');
+    Route::get('/student/index', [StudentController::class, 'index'])->name('student.index');
 });
 
 Route::middleware(['auth','role:student'])->group(function () {
-    Route::get('/student/dashboard', [StudentController::class, 'index'])->name('student.dashboard');
+    Route::get('/student/dashboard', [StudentController::class, 'dashboard'])->name('student.dashboard');
 });
 
 require __DIR__.'/auth.php';

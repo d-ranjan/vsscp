@@ -6,7 +6,7 @@
 
         @if (Auth::user()->role === 'admin')
         <x-nav-link href="{{ route('teacher.index') }}">Teachers</x-nav-link>
-        <x-nav-link href="{{ route('teacher.students') }}">Students</x-nav-link>
+        <x-nav-link href="{{ route('student.index') }}">Students</x-nav-link>
         @endif
 
         <p class="uppercase text-xs text-gray-600 mb-1 mt-4 tracking-wider dark:text-slate-400">Functions</p>
