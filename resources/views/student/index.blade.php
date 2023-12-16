@@ -26,17 +26,17 @@
                         <th scope="col" class="w-4/12 px-4 py-3 text-xs">Action
                         </th>
                     </tr>
-                    @foreach ($users as $user)
+                    @foreach ($students as $student)
                     <tr
                         class="bg-white border-b dark:bg-gray-800 dark:border-gray-900 hover:bg-gray-50">
                             <td scope="row" class="w-4/12 px-4 py-1 text-sm font-semibold text-gray-600 tracking-tight whitespace-nowrap capitalize dark:text-gray-400">
-                                {{ $user->name }}
+                                {{ $student->name }}
                             </td>
                             <td class="w-4/12 px-4 py-1 text-sm font-semibold text-gray-600 tracking-tight dark:text-gray-400">
-                                {{ $user->phone_number }}
+                                {{ $student->phone_number }}
                             </td>
                             <td class="w-4/12 px-4 py-1 text-sm font-semibold text-gray-600 tracking-tight capitalize dark:text-gray-400">
-                                {{ $user->gender }}
+                                {{ $student->gender }}
                             </td>
                             <td class="w-4/12 px-4 py-1">
                                 <div class="flex items-center justify-center">

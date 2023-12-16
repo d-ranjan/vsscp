@@ -16,3 +16,6 @@ yarn-error.log
 /.fleet
 /.idea
 /.vscode
+/public/teachers/*.png
+/public/teachers/*.jpg
+/public/teachers/*.jpeg

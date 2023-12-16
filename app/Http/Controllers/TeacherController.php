@@ -11,7 +11,7 @@ use Illuminate\Validation\Rules;
 use Illuminate\Support\Str;
 
 class TeacherController extends Controller
-{ 
+{
 
     public function dashboard()
     {
@@ -66,7 +66,7 @@ class TeacherController extends Controller
         } else {
             $photo_left = 'placeholder_l.svg';
         }
-        
+
         if ($request->hasFile('photo_right')) {
             $photo_right = Str::slug($teacher->name).'_photo_r_'.$teacher->id.'.'.$request->photo_right->getClientOriginalExtension();
             $request->photo_right->move(public_path('teachers'), $photo_right);
@@ -77,7 +77,7 @@ class TeacherController extends Controller
         $teacher->photo_left = $photo_left;
         $teacher->photo_right = $photo_right;
         $teacher->save();
-        
+
         User::create([
             'name' => $request->name,
             'phone_number' => $request->phone_number,
@@ -133,7 +133,7 @@ class TeacherController extends Controller
         } else {
             $photo_left = $teacher->photo_left;
         }
-        
+
         if ($request->hasFile('photo_right')) {
             $photo_right = Str::slug($teacher->name).'_photo_r_'.$teacher->id.'.'.$request->photo_right->getClientOriginalExtension();
             $request->photo_right->move(public_path('teachers'), $photo_right);
