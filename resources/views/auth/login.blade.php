@@ -1,6 +1,7 @@
 <x-app-layout>
     <div class="flex flex-col items-center">
         <x-application-logo width="150" height="150" />
+        <x-welcome-message/>
         <!-- Session Status -->
         <x-auth-session-status class="mb-4" :status="session('status')" />
         <div class="p-6 h-54 text-gray-900 my-2 bg-white rounded-lg shadow-sm dark:bg-slate-800">

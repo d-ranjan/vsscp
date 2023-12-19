@@ -150,7 +150,63 @@ class TeacherController extends Controller
 
         $teacher->save();
 
+        $user = User::where('phone_number', $teacher->phone_number)->firstOrFail();
+
+        $user->name = $teacher->name;
+        $user->phone_number = $teacher->phone_number;
+        $user->gender = $teacher->gender;
+        $user->save();
+
+        if($user->role == 'teacher'){
+            return redirect()->route('teacher.edit', $teacher->id)->with('status', 'profile-updated');
+        }
         return redirect()->route('teacher.index')->with('status', 'profile-updated');
     }
 
+    /**
+     * Show the form for deleting the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function delete($id)
+    {
+        // get the teacher
+        $teacher = Teacher::findOrFail($id);
+
+        //render view with teacher
+        return view('teacher.delete', compact('teacher'));
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        // get the teacher
+        $teacher = Teacher::findOrFail($id);
+
+        if ($teacher->delete()) {
+            if($teacher->photo_left != 'placeholder_l.svg') {
+                $image_path = public_path() . '/teachers/' . $teacher->photo_left;
+                if (is_file($image_path) && file_exists($image_path)) {
+                    unlink($image_path);
+                }
+            }
+            if($teacher->photo_right != 'placeholder_r.svg') {
+                $image_path = public_path() . '/teachers/' . $teacher->photo_right;
+                if (is_file($image_path) && file_exists($image_path)) {
+                    unlink($image_path);
+                }
+            }
+        }
+
+        $user = User::where('phone_number', $teacher->phone_number)->firstOrFail();
+        $user->delete();
+
+        return redirect()->route('teacher.index')->with('status', 'profile-deleted');
+    }
 }

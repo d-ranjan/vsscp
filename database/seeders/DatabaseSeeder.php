@@ -33,14 +33,14 @@ class DatabaseSeeder extends Seeder
                 'phone_number' => '7909046312',
                 'gender' => 'male',
                 'role' => 'teacher',
-                'password' => Hash::make('ankushraj123.')
+                'password' => Hash::make('#rajiv123#')
             ],
             [
                 'name' => 'Dipu Ranjan',
                 'phone_number' => '7970929701',
                 'gender' => 'male',
                 'role' => 'student',
-                'password' => Hash::make('dipu123#')
+                'password' => Hash::make('#dipu123#')
             ]
         ]);
 

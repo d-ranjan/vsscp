@@ -31,7 +31,3 @@ return new class extends Migration
         Schema::dropIfExists('users');
     }
 };
-
-// SQL: insert into `users` 
-// (`0`, `name`, `password`, `phone_number`, `role`) values (, vsscp, $2y$12$BcODt3arF20bbEYtO00GYeh1XQzlcrUp1ZEf11WSzR3iUDGxAKnOe, 9876543210, admin), 
-// (Rajiv Ranjan, $2y$12$IzpSXmyQlLcMBWsdGUkx1.IpxzVc4RVhJeqIxOLSTQR.thttD0.rC, 7909046312, teacher), (Dipu Ranjan, $2y$12$5d2VNoxMGegPYuexQUUdHuPQiDmCTXHjpgYq9ZDX3NHQ85GnS6dEu, 7970929701, student))

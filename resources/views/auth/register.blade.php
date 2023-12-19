@@ -1,7 +1,8 @@
 <x-app-layout>
     <div class="flex flex-col items-center">
         <x-application-logo width="150" height="150" />
-        <div class="p-6 h-54 text-gray-900 my-2 bg-white rounded-lg shadow-sm dark:bg-slate-800>
+        <x-welcome-message/>
+        <div class="p-6 h-54 text-gray-900 my-2 bg-white rounded-lg shadow-sm dark:bg-slate-800">
             <form method="POST" action="{{ route('register') }}">
                 @csrf
 
@@ -25,9 +26,9 @@
                 <div class="mt-4">
                     <x-input-label for="gender" :value="__('Gender')" />
                     <select id="gender" name="gender" :value="old('gender')"
-                        class="block mt-1 w-full p-2 border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm bg-gray-200 dark:text-gray-800 dark:bg-gray-300">
-                        <option selected value="male" class="p-2">Male</option>
-                        <option value="female" class="p-2">Female</option>
+                        class="block mt-1 w-full p-2 border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm bg-gray-200 dark:bg-gray-400">
+                        <option selected value="male" class="h-10">Male</option>
+                        <option value="female" class="">Female</option>
                     </select>
                     <x-input-error :messages="$errors->get('gender')" class="mt-2" />
                 </div>
