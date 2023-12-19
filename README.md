@@ -18,7 +18,7 @@ DB_PASSWORD='password'
 ```
 then
 ```
-php artisan migrate
+php artisan migrate --seed
 php artisan serve
 ```
 

@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Teacher extends Model
 {
     use HasFactory;
-    
+
     /**
      * The attributes that are mass assignable.
      *
@@ -22,5 +22,4 @@ class Teacher extends Model
         'photo_left_path',
         'photo_right',
     ];
-
 }

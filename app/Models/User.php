@@ -25,13 +25,6 @@ class User extends Authenticatable
         'password',
     ];
 
-    static public function getStudents()
-    {
-        $return = self::select('users.*')
-                        ->where('role','=','student');
-        return $return->orderBy('id','desc')->paginate(10);
-    }
-
     /**
      * The attributes that should be hidden for serialization.
      *
