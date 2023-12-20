@@ -1,5 +1,5 @@
 # VSSCP
-## Vidya Sankalpa Sansthan Carreer Path
+## Vidya Sankalpa Sansthan Career Path
 
 ## Setup
 
@@ -11,7 +11,7 @@ php artisan key:generate
 ```
 Change 
 ```
-APP_NAME = 'VSSCP | Vidya Sankalpa Sansthan Carreer Path'
+APP_NAME = 'VSSCP | Vidya Sankalpa Sansthan Career Path'
 DB_DATABASE=vsscp
 DB_USERNAME=root
 DB_PASSWORD='password'
