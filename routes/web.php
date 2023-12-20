@@ -35,6 +35,8 @@ Route::middleware(['auth','role:admin'])->group(function () {
     Route::get('/teacher/index', [TeacherController::class, 'index'])->name('teacher.index');
     Route::get('/teacher/create', [TeacherController::class, 'create'])->name('teacher.create');
     Route::post('/teacher/store', [TeacherController::class, 'store'])->name('teacher.store');
+    Route::get('/teacher/{id}/delete', [TeacherController::class, 'delete'])->name('teacher.delete');
+    Route::delete('/teacher/{id}', [TeacherController::class, 'destroy'])->name('teacher.destroy');
 
     Route::get('/course/index', [CourseController::class, 'index'])->name('course.index');
 
@@ -45,10 +47,8 @@ Route::middleware(['auth','role:teacher'])->group(function () {
     Route::get('/teacher/dashboard', [TeacherController::class, 'dashboard'])->name('teacher.dashboard');
     Route::get('/teacher/{id}/edit', [TeacherController::class, 'edit'])->name('teacher.edit');
     Route::patch('/teacher/{id}', [TeacherController::class, 'update'])->name('teacher.update');
-    Route::get('/teacher/{id}/delete', [TeacherController::class, 'delete'])->name('teacher.delete');
-    Route::delete('/teacher/{id}', [TeacherController::class, 'destroy'])->name('teacher.destroy');
 
-    Route::get('/teacher/students', [StudentController::class, 'index'])->name('teacher.students');
+    Route::get('/student/index', [StudentController::class, 'index'])->name('student.index');
 });
 
 Route::middleware(['auth','role:student'])->group(function () {
