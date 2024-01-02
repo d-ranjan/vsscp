@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('slug');
             $table->text('description');
-            $table->string('course_banner_path', 2048)->nullable();
+            $table->string('banner', 2048)->nullable();
             $table->timestamps();
         });
     }

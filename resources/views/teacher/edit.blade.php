@@ -3,40 +3,40 @@
         <div class="mx-2 my-4 max-w-lg bg-white overflow-hidden shadow-sm rounded-lg dark:bg-gray-800">
 
             @if ($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
             @endif
 
             @if (Auth::user()->role == 'admin')
-                <div class="flex items-center justify-between p-6 pb-3">
-                    <h2 class="text-gray-700 uppercase font-bold dark:text-white">Teacher Profile</h2>
-                    <a href="{{ route('teacher.index') }}"
-                        class="bg-gray-700 text-white text-sm uppercase py-2 px-4 flex items-center rounded">
-                        <svg class="w-3 h-3 fill-current" aria-hidden="true" focusable="false" data-prefix="fas"
-                            data-icon="long-arrow-alt-left" class="svg-inline--fa fa-long-arrow-alt-left fa-w-14"
-                            role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                            <path fill="currentColor"
-                                d="M134.059 296H436c6.627 0 12-5.373 12-12v-56c0-6.627-5.373-12-12-12H134.059v-46.059c0-21.382-25.851-32.09-40.971-16.971L7.029 239.029c-9.373 9.373-9.373 24.569 0 33.941l86.059 86.059c15.119 15.119 40.971 4.411 40.971-16.971V296z">
-                            </path>
-                        </svg>
-                        <span class="ml-2 text-xs font-semibold">Back</span>
-                    </a>
-                </div>
+            <div class="flex items-center justify-between p-6 pb-3">
+                <h2 class="text-gray-700 uppercase font-bold dark:text-white">Teacher Profile</h2>
+                <a href="{{ route('teacher.index') }}"
+                    class="bg-gray-700 text-white text-sm uppercase py-2 px-4 flex items-center rounded">
+                    <svg class="w-3 h-3 fill-current" aria-hidden="true" focusable="false" data-prefix="fas"
+                        data-icon="long-arrow-alt-left" class="svg-inline--fa fa-long-arrow-alt-left fa-w-14" role="img"
+                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                        <path fill="currentColor"
+                            d="M134.059 296H436c6.627 0 12-5.373 12-12v-56c0-6.627-5.373-12-12-12H134.059v-46.059c0-21.382-25.851-32.09-40.971-16.971L7.029 239.029c-9.373 9.373-9.373 24.569 0 33.941l86.059 86.059c15.119 15.119 40.971 4.411 40.971-16.971V296z">
+                        </path>
+                    </svg>
+                    <span class="ml-2 text-xs font-semibold">Back</span>
+                </a>
+            </div>
             @else
-                <header class="px-6 py-3">
-                    <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
-                        {{ __('Profile Information') }}
-                    </h2>
+            <header class="px-6 py-3">
+                <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
+                    {{ __('Profile Information') }}
+                </h2>
 
-                    <p class="mt-1 text-sm text-gray-600 dark:text-gray-300">
-                        {{ __("Update your account's profile information.") }}
-                    </p>
-                </header>
+                <p class="mt-1 text-sm text-gray-600 dark:text-gray-300">
+                    {{ __("Update your account's profile information.") }}
+                </p>
+            </header>
             @endif
             <hr>
 
@@ -58,7 +58,8 @@
                     <div>
                         <x-input-label for="phone_number" :value="__('Phone Number')" />
                         <x-text-input id="phone_number" name="phone_number" type="tel" pattern="[1-9][0-9]{9}"
-                            class="mt-1 block w-full" :value="old('phone_number', $teacher->phone_number)" required autocomplete="phone_number" />
+                            class="mt-1 block w-full" :value="old('phone_number', $teacher->phone_number)" required
+                            autocomplete="phone_number" />
                         <x-input-error class="mt-2" :messages="$errors->get('phone_number')" />
                     </div>
 
@@ -66,7 +67,7 @@
                     <div>
                         <x-input-label for="gender" :value="__('Gender')" />
                         <select id="gender" name="gender"
-                        class="block mt-1 w-full p-2 border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm dark:bg-gray-400"
+                            class="block mt-1 w-full p-2 border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm dark:bg-gray-400"
                             required>
                             <option value="male" class="p-2">Male</option>
                             <option value="female" {{ $teacher->gender == 'female' ? 'selected' : '' }}>Female</option>
@@ -106,10 +107,11 @@
                     <!-- Submit Button -->
                     <div class="flex items-center justify-end gap-4">
                         @if (session('status') === 'profile-updated')
-                            <p x-data="{ show: true }" x-show="show" x-transition x-init="setTimeout(() => show = false, 2000)"
-                                class="text-sm text-gray-600 dark:text-gray-200 dark:bg-green-500">{{ __('Saved.') }}</p>
+                        <p x-data="{ show: true }" x-show="show" x-transition
+                            x-init="setTimeout(() => show = false, 2000)"
+                            class="text-sm text-gray-600 dark:text-gray-200 dark:bg-green-500">{{ __('Saved.') }}</p>
                         @endif
-                        <x-primary-button class="w-24">{{ __('Save') }}</x-primary-button>
+                        <x-primary-button class="w-24">{{ __('Update') }}</x-primary-button>
                     </div>
                 </form>
             </div>
